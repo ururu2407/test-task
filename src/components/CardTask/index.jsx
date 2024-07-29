@@ -139,136 +139,139 @@ export const CardTask = () => {
   const styleOptions = ["Realistic", "Anime", "Cartoon"];
 
   return (
-    <div className="card">
-      <div className="card-header">
-        <div className="card-header-path">
-          <div className="card-header-path-title">
-            <Link to="/">My Projects</Link>
-            <span>/</span>
-            <p>{task.taskName}</p>
-          </div>
-          <div className="card-header-path-close">
-            <CloseIcon />
-          </div>
-        </div>
-        <div className="card-header-title">
-          <p>{task.taskName}</p>
-          <span>Subtitle</span>
-        </div>
-      </div>
-      <div className="card-body">
-        <div className="card-content">
-          <div className="card-content_text">
-            <p>Text</p>
-            <DropDownIcon />
-          </div>
-        </div>
-        <div className="card-content">
-          <div className="card-content_image">
-            <p className="title">Image</p>
-            <div className="accordion-container">
-              {task.images.map((image, index) => (
-                <div key={index} className="accordion-block">
-                  <div className="accordion-trigger" onClick={toggleAccordion}>
-                    <p>{image}</p>
-                    <DropDownIcon />
-                  </div>
-                  <div className="accordion-text">
-                    <DropdownSelect
-                      label="Proportions"
-                      options={dimensionOptions}
-                      value={dimensions[index]}
-                      onChange={handleChangeDimension}
-                      index={index}
-                    />
-                    <DropdownSelect
-                      label="Flow"
-                      options={flowOptions}
-                      value={flows[index]}
-                      onChange={handleChangeFlow}
-                      index={index}
-                    />
-                    <div className="divider"></div>
-                    <div className="image-refs-block">
-                      <p>Image refs</p>
-                      <div className="image-refs">
-                        {imageRefs[index].map((item, refIndex) => (
-                          <div key={refIndex} className="image">
-                            <div
-                              className="delete"
-                              onClick={() => handleDeleteImage(index, refIndex)}
-                            >
-                              <DeleteIcon />
-                            </div>
-                            <img src={item} alt="" />
-                          </div>
-                        ))}
-                        <div
-                          className="image-ref"
-                          onClick={() => handleAddImage(index)}
-                        >
-                          <AddImageIcon />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="divider"></div>
-                    <div className="manual-text">
-                      <input
-                        type="text"
-                        placeholder="Manual prompts"
-                        value={manualPrompts[index]}
-                        onChange={(event) =>
-                          handleChangeManualPrompts(index, event)
-                        }
-                      />
-                    </div>
-                    <div className="inputValue">
-                      <p>{manualPrompts[index]}</p>
-                      {manualPrompts[index] && <ArrowOutwardIcon />}
-                    </div>
-                    <div className="manual-text">
-                      <input
-                        type="number"
-                        placeholder="Generations per ref (number)"
-                        value={generationsPerRef[index]}
-                        onChange={(event) =>
-                          handleChangeGenerationsPerRef(index, event)
-                        }
-                      />
-                    </div>
-                    <div className="inputValue">
-                      <p>{generationsPerRef[index]}</p>
-                      {generationsPerRef[index] && <ArrowOutwardIcon />}
-                    </div>
-                    <DropdownSelect
-                      label="Styles"
-                      options={styleOptions}
-                      value={styles[index]}
-                      onChange={handleChangeStyles}
-                      index={index}
-                    />
-                  </div>
-                </div>
-              ))}
+    <>
+      <div className="card">
+        <div className="card-header">
+          <div className="card-header-path">
+            <div className="card-header-path-title">
+              <Link to="/test-task/">My Projects</Link>
+              <span>/</span>
+              <p>{task.taskName}</p>
+            </div>
+            <div className="card-header-path-close">
+              <CloseIcon />
             </div>
           </div>
+          <div className="card-header-title">
+            <p>{task.taskName}</p>
+            <span>Subtitle</span>
+          </div>
         </div>
-        <button
-          onClick={() => {
-            console.log({
-              dimensions,
-              flows,
-              styles,
-              imageRefs,
-              manualPrompts,
-              generationsPerRef,
-            });
-            updateData();
-          }}
-        >
-          Generate
-        </button>
+        <div className="card-body">
+          <div className="card-content">
+            <div className="card-content_text">
+              <p>Text</p>
+              <DropDownIcon />
+            </div>
+          </div>
+          <div className="card-content">
+            <div className="card-content_image">
+              <p className="title">Image</p>
+              <div className="accordion-container">
+                {task.images.map((image, index) => (
+                  <div key={index} className="accordion-block">
+                    <div
+                      className="accordion-trigger"
+                      onClick={toggleAccordion}
+                    >
+                      <p>{image}</p>
+                      <DropDownIcon />
+                    </div>
+                    <div className="accordion-text">
+                      <DropdownSelect
+                        label="Proportions"
+                        options={dimensionOptions}
+                        value={dimensions[index]}
+                        onChange={handleChangeDimension}
+                        index={index}
+                      />
+                      <DropdownSelect
+                        label="Flow"
+                        options={flowOptions}
+                        value={flows[index]}
+                        onChange={handleChangeFlow}
+                        index={index}
+                      />
+                      <div className="divider"></div>
+                      <div className="image-refs-block">
+                        <p>Image refs</p>
+                        <div className="image-refs">
+                          {imageRefs[index].map((item, refIndex) => (
+                            <div key={refIndex} className="image">
+                              <div
+                                className="delete"
+                                onClick={() =>
+                                  handleDeleteImage(index, refIndex)
+                                }
+                              >
+                                <DeleteIcon />
+                              </div>
+                              <img src={item} alt="" />
+                            </div>
+                          ))}
+                          <div
+                            className="image-ref"
+                            onClick={() => handleAddImage(index)}
+                          >
+                            <AddImageIcon />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="divider"></div>
+                      <div className="manual-text">
+                        <input
+                          type="text"
+                          placeholder="Manual prompts"
+                          value={manualPrompts[index]}
+                          onChange={(event) =>
+                            handleChangeManualPrompts(index, event)
+                          }
+                        />
+                      </div>
+                      <div className="inputValue">
+                        <p>{manualPrompts[index]}</p>
+                        {manualPrompts[index] && <ArrowOutwardIcon />}
+                      </div>
+                      <div className="manual-text">
+                        <input
+                          type="number"
+                          placeholder="Generations per ref (number)"
+                          value={generationsPerRef[index]}
+                          onChange={(event) =>
+                            handleChangeGenerationsPerRef(index, event)
+                          }
+                        />
+                      </div>
+                      <div className="inputValue">
+                        <p>{generationsPerRef[index]}</p>
+                        {generationsPerRef[index] && <ArrowOutwardIcon />}
+                      </div>
+                      <DropdownSelect
+                        label="Styles"
+                        options={styleOptions}
+                        value={styles[index]}
+                        onChange={handleChangeStyles}
+                        index={index}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <button
+            onClick={() => {
+              updateData();
+            }}
+          >
+            Generate
+          </button>
+        </div>
       </div>
-    </div>
+      <p className="ps">
+        P.S На ендпоїнт відправляються дані тільки з першого шару, так як АПІ
+        приймає тільки одне значення{" "}
+      </p>
+    </>
   );
 };

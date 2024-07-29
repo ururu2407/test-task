@@ -186,7 +186,7 @@ export const Table = () => {
               {data.map((item, index) => (
                 <ul key={index}>
                   <li className="taskName">
-                    <Link to={`/card/${item.id}`}>
+                    <Link to={`/test-task/card/${item.id}`}>
                       {item.id}
                       <span>{item.taskName}</span>
                     </Link>
