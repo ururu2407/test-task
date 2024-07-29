@@ -1,0 +1,219 @@
+.card {
+  width: 700px;
+  display: grid;
+  gap: 40px;
+  .card-header {
+    display: grid;
+    gap: 15px;
+    .card-header-path {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .card-header-path-title {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: #b8b8b8;
+        gap: 8px;
+        a {
+          color: #000;
+        }
+      }
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .card-header-title {
+      p {
+        font-size: 36px;
+        font-weight: 700;
+      }
+      span {
+        color: #b8b8b8;
+        font-size: 20px;
+      }
+    }
+  }
+  .card-body {
+    display: grid;
+    gap: 20px;
+    .card-content {
+      padding: 15px;
+      border: 1px solid #cdcdcd;
+      border-radius: 10px;
+      p {
+        font-size: 20px;
+        font-weight: 400;
+      }
+
+      &_text {
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      &_image {
+        font-weight: 700;
+        .title {
+          font-weight: 700;
+          font-size: 24px;
+          margin-bottom: 25px;
+        }
+        .accordion-container {
+          display: grid;
+          gap: 15px;
+          .accordion-block {
+            display: grid;
+            gap: 15px;
+            .accordion-trigger {
+              cursor: pointer;
+              user-select: none;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              p {
+                font-weight: 700;
+                font-size: 18px;
+              }
+
+              svg {
+                transition: 0.3s all ease-in-out;
+              }
+
+              &.expanded {
+                svg {
+                  transition: 0.3s all ease-in-out;
+                  transform: rotate(180deg);
+                }
+              }
+              &.manual {
+                padding: 10px;
+                border-radius: 15px;
+                border: 1px solid #cdcdcd;
+              }
+            }
+
+            .accordion-text {
+              overflow: hidden;
+              max-height: 0;
+              transition: max-height 0.3s ease-in-out;
+              display: grid;
+              gap: 20px;
+              .divider {
+                content: "";
+                width: 100%;
+                height: 1px;
+                background-color: #cdcdcd;
+              }
+              .image-refs-block {
+                display: grid;
+                gap: 15px;
+                p {
+                  font-weight: 700;
+                }
+                .image-refs {
+                  display: flex;
+                  gap: 15px;
+                  flex-wrap: wrap;
+                  .image {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 20px;
+                    position: relative;
+                    .delete {
+                      width: 26px;
+                      height: 26px;
+                      border-radius: 50%;
+                      background-color: #c0c0c0;
+                      cursor: pointer;
+                      position: absolute;
+                      right: -5px;
+                      top: -5px;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      svg {
+                        width: 20px;
+                        height: 20px;
+                      }
+                    }
+                    img {
+                      object-fit: cover;
+                      border-radius: 20px;
+                      width: 100%;
+                      height: 100%;
+                    }
+                  }
+                  .image-ref {
+                    cursor: pointer;
+                    width: 150px;
+                    height: 150px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 1px solid #cdcdcd;
+                    background-color: #ececec;
+                    border-radius: 20px;
+                  }
+                }
+              }
+              .manual-text {
+                border: 1px solid rgba(0, 0, 0, 0.23);
+                padding: 16.5px 14px;
+                border-radius: 4px;
+                input {
+                  font-size: 18px;
+                  padding: 0;
+                  height: 23px;
+                  &::-webkit-outer-spin-button,
+                  &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                  }
+                }
+              }
+              .inputValue {
+                display: flex;
+                gap: 8px;
+                margin-left: 20px;
+                margin-top: -9px;
+                align-items: center;
+                p {
+                  font-weight: 700;
+                  font-size: 16px;
+                }
+                svg {
+                  width: 18px;
+                  height: 18px;
+                }
+              }
+            }
+
+            .accordion-text.expanded {
+              max-height: 1000px; // Подкорректируйте значение в соответствии с высотой контента
+            }
+          }
+        }
+      }
+    }
+    button {
+      width: 200px;
+      height: 40px;
+      border-radius: 10px;
+      background: #0d0d0d;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+  }
+}
+
+.MuiList-root {
+  display: block;
+}

@@ -1,0 +1,282 @@
+.table {
+  width: 100%;
+  .table-header {
+    ul {
+      li {
+        background-color: #f5f5f5;
+        padding: 10px;
+        border: 1px solid #cdcdcd;
+      }
+    }
+  }
+  .table-content {
+    padding: 10px 0px 30px 10px;
+    background-color: #ededed;
+    border-radius: 0px 0px 10px 10px;
+    border: 1px solid #cdcdcd;
+    border-top: none;
+    border-right: none;
+    ul {
+      li {
+        &.taskName {
+          padding: 10px 5px;
+        }
+      }
+    }
+
+    .table-content-header {
+      ul {
+        li {
+          display: flex;
+          justify-content: right;
+          align-items: center;
+          background-color: #f7f7f7;
+
+          &.taskName {
+            padding: 10px 5px;
+            display: flex;
+            justify-content: space-between;
+            border-right: none;
+            border-radius: 10px 0px 0px 0px;
+            .status-container {
+              display: flex;
+              flex-direction: column;
+              gap: 5px;
+              .status {
+                font-size: 12px;
+              }
+              .to-do {
+                font-size: 12px;
+                color: #f3f3f3;
+                background-color: #7c37ef;
+                padding: 5px;
+                border-radius: 10px;
+                text-align: center;
+              }
+            }
+            .count {
+              font-size: 13px;
+              border-radius: 10px;
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              height: 100%;
+            }
+          }
+          &.dimension {
+            border-left: none;
+            padding-left: 12px;
+          }
+          &.resultAds {
+            border-radius: 0px 10px 0px 0px;
+          }
+        }
+      }
+    }
+    .table-content-body {
+      ul {
+        li {
+          background-color: #fff;
+          position: relative;
+          display: flex;
+          align-items: center;
+          p {
+            width: fit-content;
+            height: fit-content;
+            padding: 5px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+          }
+          &.taskName {
+            gap: 40px;
+            a {
+              width: fit-content;
+              height: fit-content;
+              border-radius: 10px;
+              display: flex;
+              align-items: center;
+              gap: 40px;
+              color: #000;
+              text-decoration: none;
+              span {
+                font-weight: 600;
+              }
+              input {
+                font-weight: 600;
+              }
+            }
+            span {
+              font-weight: 600;
+            }
+            input {
+              font-weight: 600;
+            }
+          }
+          &.dimension {
+            justify-content: center;
+            p {
+              background-color: #e0dafd;
+            }
+          }
+          &.templateId {
+            justify-content: center;
+            p {
+              background-color: #ffa6c0;
+            }
+          }
+          &.images,
+          &.text {
+            gap: 5px;
+            flex-wrap: wrap;
+            p {
+              background-color: #e9eef9;
+              border-radius: 5px;
+              color: #000;
+              height: fit-content;
+            }
+          }
+          &.text {
+            p {
+              background-color: #e9eef9;
+              color: #000;
+            }
+          }
+          &.amount {
+            justify-content: end;
+          }
+          &.genType {
+            justify-content: center;
+            p {
+              background-color: #ffb68e;
+            }
+          }
+          &.genTasks,
+          &.resultAds {
+            justify-content: center;
+            p,
+            a {
+              background-color: #feecc0;
+              padding: 5px 10px;
+              border-radius: 5px;
+            }
+          }
+          &.resultAds {
+            a {
+              background-color: #cef5d1;
+              width: fit-content;
+              height: fit-content;
+              color: #000;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  li {
+    padding: 10px;
+    border: 1px solid #cdcdcd;
+    &.taskName {
+      width: 200px;
+    }
+    &.dimension {
+      width: 50px;
+    }
+    &.templateId {
+      width: 120px;
+    }
+    &.images {
+      width: 200px;
+    }
+    &.text {
+      width: 150px;
+    }
+    &.amount {
+      width: 70px;
+    }
+    &.genType {
+      width: 150px;
+    }
+    &.genTasks {
+      width: 100px;
+    }
+    &.resultAds {
+      width: 100px;
+    }
+  }
+}
+select {
+  width: fit-content;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  cursor: pointer;
+  > option {
+    padding: 5px;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+  }
+}
+select::-ms-expand {
+  display: none;
+}
+input {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+.drop {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 10;
+  border: 1px solid #cdcdcd;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  display: grid;
+  gap: 10px;
+  input {
+    width: 100%;
+    border-bottom: 1px solid #979797;
+    padding-bottom: 7px;
+  }
+  .list {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    .delete {
+      cursor: pointer;
+      background-color: #e9eef9;
+      padding: 5px 10px;
+      width: fit-content;
+    }
+  }
+  .add {
+    padding: 10px 5px;
+    cursor: pointer;
+    background: none !important;
+    color: #000;
+  }
+}
